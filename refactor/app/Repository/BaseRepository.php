@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BaseRepository
 {
-
     /**
      * @var Model
      */
@@ -85,7 +84,6 @@ class BaseRepository
     {
 
         return $this->model->where('slug', $slug)->first();
-
     }
 
     /**
@@ -196,10 +194,9 @@ class BaseRepository
 
         if ($validator->fails()) {
             return false;
-            throw (new ValidationException)->setValidator($validator);
+            throw (new ValidationException())->setValidator($validator);
         }
 
         return true;
     }
-
 }
